@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Calculatrice;assembly=Calculatrice"
+             x:Class="Calculatrice.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel></vm:MainPageViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style x:Key="btn--orange" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="TextColor" Value="Orange"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+
+        <Style x:Key="btn--white" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="TextColor" Value="white"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+
+        <Style x:Key="btn--sp" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="orange"></Setter>
+            <Setter Property="TextColor" Value="white"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+            <Setter Property="CornerRadius" Value="100"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView BackgroundColor="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Label VerticalOptions="EndAndExpand" HorizontalOptions="End" Text="{Binding Story}" TextColor="White" FontSize="Large"></Label>
+                <Label VerticalOptions="EndAndExpand" HorizontalOptions="End" Text="{Binding Result}" TextColor="White" FontSize="Large"></Label>
+            </StackLayout>
+            <BoxView Grid.Row="1" BackgroundColor="Gray"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="AC" Command="{Binding ClickACCommand}" Style="{StaticResource btn--orange}" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="SUPP" Command="{Binding ClickSUPPCommand}" Style="{StaticResource btn--orange}" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="%" Command="{Binding ClickSymbolCommand}" CommandParameter="%" Style="{StaticResource btn--orange}" Grid.Row="0" Grid.Column="2"/>
+                <Button Text="/" Command="{Binding ClickSymbolCommand}" CommandParameter="/" Style="{StaticResource btn--orange}" Grid.Row="0" Grid.Column="3"/>
+                <Button Text="1" Command="{Binding ClickNumberCommand}" CommandParameter="1" Style="{StaticResource btn--white}" Grid.Row="1" Grid.Column="0"/>
+                <Button Text="2" Command="{Binding ClickNumberCommand}" CommandParameter="2" Style="{StaticResource btn--white}" Grid.Row="1" Grid.Column="1"/>
+                <Button Text="3" Command="{Binding ClickNumberCommand}" CommandParameter="3" Style="{StaticResource btn--white}" Grid.Row="1" Grid.Column="2"/>
+                <Button Text="x" Command="{Binding ClickSymbolCommand}" CommandParameter="x"  Style="{StaticResource btn--orange}" Grid.Row="1" Grid.Column="3"/>
+                <Button Text="4" Command="{Binding ClickNumberCommand}" CommandParameter="4" Style="{StaticResource btn--white}" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="5" Command="{Binding ClickNumberCommand}" CommandParameter="5" Style="{StaticResource btn--white}" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="6" Command="{Binding ClickNumberCommand}" CommandParameter="6" Style="{StaticResource btn--white}" Grid.Row="2" Grid.Column="2"/>
+                <Button Text="-" Command="{Binding ClickSymbolCommand}" CommandParameter="-"  Style="{StaticResource btn--orange}" Grid.Row="2" Grid.Column="3"/>
+                <Button Text="7" Command="{Binding ClickNumberCommand}" CommandParameter="7" Style="{StaticResource btn--white}" Grid.Row="3" Grid.Column="0"/>
+                <Button Text="8" Command="{Binding ClickNumberCommand}" CommandParameter="8" Style="{StaticResource btn--white}" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="9" Command="{Binding ClickNumberCommand}" CommandParameter="9" Style="{StaticResource btn--white}" Grid.Row="3" Grid.Column="2"/>
+                <Button Text="+" Command="{Binding ClickSymbolCommand}" CommandParameter="+" Style="{StaticResource btn--orange}" Grid.Row="3" Grid.Column="3"/>
+                <Button Text="0" Command="{Binding ClickNumberCommand}" CommandParameter="0" Style="{StaticResource btn--white}" Grid.Row="4" Grid.Column="1"/>
+                <Button Text="=" Command="{Binding ClickEqualCommand}" Style="{StaticResource btn--sp}" Grid.Row="4" Grid.Column="3"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
